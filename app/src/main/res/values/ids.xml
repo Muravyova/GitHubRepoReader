@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="item_load_id" type="id"/>
+    <item name="item_user_id" type="id"/>
+    <item name="item_error_id" type="id"/>
+    <item name="item_file_id" type="id"/>
+    <item name="item_repository_id" type="id"/>
+    <item name="item_empty_id" type="id"/>
+</resources>

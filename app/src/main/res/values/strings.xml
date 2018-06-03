@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">GitHubRepoReader</string>
+    <string name="try_again">Попробовать ещё раз</string>
+    <string name="no_answer_from_server">Нет ответа от сервера</string>
+    <string name="check_connection">Проверьте интернет соединение</string>
+    <string name="error">Ошибка:</string>
+    <string name="time_out">Превышено время ожидания</string>
+    <string name="created">Создан:</string>
+    <string name="repositories">Репозиториев:</string>
+    <string name="not_found_users">Увы, пользователей не найдено</string>
+    <string name="empty_repositories">Репозитории отсутсвуют</string>
+    <string name="limit">Превышен лимит запросов для неавторизованных пользователей (50 запросов в час)</string>
+    <string name="empty_directory">В данной директории нет файлов</string>
+</resources>

@@ -8,7 +8,7 @@ import com.github.muravyova.githubreporeader.models.CommonItem;
 import com.github.muravyova.githubreporeader.network.GitHubAPI;
 import com.github.muravyova.githubreporeader.network.Repository;
 import com.github.muravyova.githubreporeader.network.Users;
-import com.github.muravyova.githubreporeader.util.ResponseChecker;
+import com.github.muravyova.githubreporeader.utils.ResponseChecker;
 
 import java.util.ArrayList;
 import java.util.List;

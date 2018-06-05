@@ -1,4 +1,4 @@
-package com.github.muravyova.githubreporeader.adapter;
+package com.github.muravyova.githubreporeader.adapters;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -16,12 +16,13 @@ import com.github.muravyova.githubreporeader.R;
 import com.github.muravyova.githubreporeader.models.CommonItem;
 import com.github.muravyova.githubreporeader.models.EmptyItem;
 import com.github.muravyova.githubreporeader.models.ErrorItem;
-import com.github.muravyova.githubreporeader.models.FileItem;
+import com.github.muravyova.githubreporeader.models.DocumentItem;
 import com.github.muravyova.githubreporeader.models.RepositoryItem;
 import com.github.muravyova.githubreporeader.models.UserItem;
-import com.github.muravyova.githubreporeader.util.CircularTransformation;
-import com.github.muravyova.githubreporeader.util.StringUtil;
-import com.github.muravyova.githubreporeader.widget.SquareImageView;
+import com.github.muravyova.githubreporeader.network.DocumentType;
+import com.github.muravyova.githubreporeader.utils.CircularTransformation;
+import com.github.muravyova.githubreporeader.utils.StringUtil;
+import com.github.muravyova.githubreporeader.widgets.SquareImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -44,9 +45,9 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.CommonVi
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view;
         switch (viewType){
-            case R.id.item_file_id:
-                view = inflater.inflate(R.layout.item_file, parent, false);
-                return new FileViewHolder(view);
+            case R.id.item_document_id:
+                view = inflater.inflate(R.layout.item_document, parent, false);
+                return new DocumentViewHolder(view);
             case R.id.item_user_id:
                 view = inflater.inflate(R.layout.item_user, parent, false);
                 return new UserViewHolder(view);
@@ -203,30 +204,30 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.CommonVi
 
     }
 
-    public static class FileViewHolder extends CommonViewHolder{
+    public static class DocumentViewHolder extends CommonViewHolder{
 
         private final ImageView mIcon;
-        private final TextView mFileName;
-        private final TextView mFileSize;
+        private final TextView mDocName;
+        private final TextView mDocSize;
 
-        FileViewHolder(View itemView) {
+        DocumentViewHolder(View itemView) {
             super(itemView);
-            mIcon = itemView.findViewById(R.id.file_icon);
-            mFileName = itemView.findViewById(R.id.file_name);
-            mFileSize = itemView.findViewById(R.id.file_size);
+            mIcon = itemView.findViewById(R.id.document_icon);
+            mDocName = itemView.findViewById(R.id.document_name);
+            mDocSize = itemView.findViewById(R.id.document_size);
         }
 
         @Override
         void bind(CommonItem item, CommonItem.ItemClick click) {
-            FileItem fileItem = (FileItem) item;
-            if (fileItem.getFile().type.equals("file")){
+            DocumentItem documentItem = (DocumentItem) item;
+            if (documentItem.getDocument().type == DocumentType.FILE){
                 mIcon.setImageResource(R.drawable.ic_file);
-                mFileSize.setText(StringUtil.getSizeString(fileItem.getFile().size));
+                mDocSize.setText(StringUtil.getSizeString(documentItem.getDocument().size));
             } else {
                 mIcon.setImageResource(R.drawable.ic_folder);
-                mFileSize.setText("");
+                mDocSize.setText("");
             }
-            mFileName.setText(fileItem.getFile().name);
+            mDocName.setText(documentItem.getDocument().name);
             itemView.setOnClickListener(v -> click.onClick(item));
         }
 

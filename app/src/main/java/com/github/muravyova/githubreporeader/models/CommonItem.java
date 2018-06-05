@@ -2,10 +2,10 @@ package com.github.muravyova.githubreporeader.models;
 
 import com.github.muravyova.githubreporeader.App;
 import com.github.muravyova.githubreporeader.R;
-import com.github.muravyova.githubreporeader.network.File;
+import com.github.muravyova.githubreporeader.network.Document;
 import com.github.muravyova.githubreporeader.network.Repository;
 import com.github.muravyova.githubreporeader.network.User;
-import com.github.muravyova.githubreporeader.util.StringUtil;
+import com.github.muravyova.githubreporeader.utils.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -57,16 +57,17 @@ public abstract class CommonItem {
         return items;
     }
 
-    public static List<CommonItem> createFileItems(List<File> files){
+    public static List<CommonItem> createFileItems(List<Document> documents){
         List<CommonItem> items = new ArrayList<>();
-        if (files.size() == 0){
+        if (documents.size() == 0){
             StringUtil instance = App.INJECTOR.stringUtil;
             items.add(new EmptyItem(instance.getString(R.string.empty_directory)));
             return items;
         }
-        Collections.sort(files, (o1, o2) -> o1.type.compareTo(o2.type));
-        for (File file : files){
-            items.add(new FileItem(file));
+        Collections.sort(documents, (o1, o2) -> o1.getType().compareTo(o2.getType()));
+        for (Document document : documents){
+            document.createType();
+            items.add(new DocumentItem(document));
         }
         return items;
     }

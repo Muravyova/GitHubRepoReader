@@ -1,8 +1,8 @@
-package com.github.muravyova.githubreporeader.util;
+package com.github.muravyova.githubreporeader.utils;
 
 import android.support.annotation.NonNull;
 
-import com.github.muravyova.githubreporeader.models.FileItem;
+import com.github.muravyova.githubreporeader.models.DocumentItem;
 import com.github.muravyova.githubreporeader.models.StackEntry;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class Stack {
 
     public String add(StackEntry item){
         if (item.items.size() == 1){
-            if (!(item.items.get(0) instanceof FileItem)){
+            if (!(item.items.get(0) instanceof DocumentItem)){
                 return item.path;
             }
         }

@@ -11,8 +11,8 @@ import android.view.MenuItem;
 import com.github.muravyova.githubreporeader.R;
 import com.github.muravyova.githubreporeader.fragments.CodeFragment;
 import com.github.muravyova.githubreporeader.fragments.ImageFragment;
-import com.github.muravyova.githubreporeader.models.FileItem;
-import com.github.muravyova.githubreporeader.util.StringUtil;
+import com.github.muravyova.githubreporeader.models.DocumentItem;
+import com.github.muravyova.githubreporeader.utils.StringUtil;
 
 import java.util.List;
 
@@ -23,16 +23,16 @@ public class ReaderActivity extends AppCompatActivity {
 
     private final static String TYPE = "type";
 
-    public static Intent newIntent(Context context, FileItem item){
+    public static Intent newIntent(Context context, DocumentItem item){
         Intent intent = new Intent(context, ReaderActivity.class);
-        if (StringUtil.canShowLikeImage(item.getFile().name)){
+        if (StringUtil.canShowLikeImage(item.getDocument().name)){
             intent.putExtra(TYPE, 0);
         } else {
             intent.putExtra(TYPE, 1);
         }
 
-        intent.putExtra(URL, item.getFile().downloadUrl);
-        intent.putExtra(TITLE, item.getFile().path);
+        intent.putExtra(URL, item.getDocument().downloadUrl);
+        intent.putExtra(TITLE, item.getDocument().path);
         return intent;
     }
 

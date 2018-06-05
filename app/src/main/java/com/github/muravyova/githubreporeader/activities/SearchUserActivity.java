@@ -11,10 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.github.muravyova.githubreporeader.R;
-import com.github.muravyova.githubreporeader.adapter.ContentAdapter;
+import com.github.muravyova.githubreporeader.adapters.ContentAdapter;
 import com.github.muravyova.githubreporeader.models.CommonItem;
 import com.github.muravyova.githubreporeader.models.UserItem;
-import com.github.muravyova.githubreporeader.util.DisplayUtil;
+import com.github.muravyova.githubreporeader.utils.DisplayUtil;
 import com.github.muravyova.githubreporeader.viewmodels.SearchUserViewModel;
 
 public class SearchUserActivity extends AppCompatActivity {

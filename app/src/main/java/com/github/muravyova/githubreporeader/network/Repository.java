@@ -1,6 +1,6 @@
 package com.github.muravyova.githubreporeader.network;
 
-import com.github.muravyova.githubreporeader.util.StringUtil;
+import com.github.muravyova.githubreporeader.utils.StringUtil;
 import com.google.gson.annotations.SerializedName;
 
 public class Repository {

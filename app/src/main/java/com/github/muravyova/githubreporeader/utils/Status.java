@@ -1,4 +1,4 @@
-package com.github.muravyova.githubreporeader.util;
+package com.github.muravyova.githubreporeader.utils;
 
 public enum Status {
     SUCCESS,

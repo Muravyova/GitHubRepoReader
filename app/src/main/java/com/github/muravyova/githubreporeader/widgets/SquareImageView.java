@@ -1,4 +1,4 @@
-package com.github.muravyova.githubreporeader.widget;
+package com.github.muravyova.githubreporeader.widgets;
 
 import android.content.Context;
 import android.util.AttributeSet;

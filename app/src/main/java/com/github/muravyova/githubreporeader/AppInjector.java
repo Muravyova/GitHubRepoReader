@@ -5,8 +5,8 @@ import android.content.Context;
 import com.github.muravyova.githubreporeader.network.GitHubAPI;
 import com.github.muravyova.githubreporeader.interactors.FileInteractor;
 import com.github.muravyova.githubreporeader.interactors.UserInteractor;
-import com.github.muravyova.githubreporeader.util.ColorUtil;
-import com.github.muravyova.githubreporeader.util.StringUtil;
+import com.github.muravyova.githubreporeader.utils.ColorUtil;
+import com.github.muravyova.githubreporeader.utils.StringUtil;
 import com.google.gson.GsonBuilder;
 
 import java.util.concurrent.Executor;

@@ -10,7 +10,7 @@
     app:cardElevation="3dp"
     app:cardUseCompatPadding="true">
 
-        <com.github.muravyova.githubreporeader.widget.SquareImageView
+        <com.github.muravyova.githubreporeader.widgets.SquareImageView
             android:id="@+id/user_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

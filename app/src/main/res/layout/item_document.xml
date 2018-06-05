@@ -12,7 +12,7 @@
     android:foreground="?android:attr/selectableItemBackground">
 
     <ImageView
-        android:id="@+id/file_icon"
+        android:id="@+id/document_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="ContentDescription"
@@ -20,7 +20,7 @@
         android:layout_weight="0" />
 
     <TextView
-        android:id="@+id/file_name"
+        android:id="@+id/document_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -29,7 +29,7 @@
         android:paddingEnd="@dimen/standard_margin" />
 
     <TextView
-        android:id="@+id/file_size"
+        android:id="@+id/document_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

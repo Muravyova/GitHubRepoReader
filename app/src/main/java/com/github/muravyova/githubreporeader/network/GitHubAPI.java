@@ -19,6 +19,6 @@ public interface GitHubAPI {
     Call<ArrayList<Repository>> getUserRepositories(@Path("user") @NonNull String user);
 
     @NonNull @GET("repos/{owner}/{repo}/contents/{path}")
-    Call<ArrayList<File>> getRepoStructure(@Path("owner") @NonNull String user, @Path("repo") String repo, @Path("path") String path);
+    Call<ArrayList<Document>> getRepoStructure(@Path("owner") @NonNull String user, @Path("repo") String repo, @Path("path") String path);
 
 }

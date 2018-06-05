@@ -8,10 +8,10 @@ import android.util.Log;
 import com.github.muravyova.githubreporeader.App;
 import com.github.muravyova.githubreporeader.models.CommonItem;
 import com.github.muravyova.githubreporeader.models.StackEntry;
-import com.github.muravyova.githubreporeader.network.File;
+import com.github.muravyova.githubreporeader.network.Document;
 import com.github.muravyova.githubreporeader.network.GitHubAPI;
-import com.github.muravyova.githubreporeader.util.Resource;
-import com.github.muravyova.githubreporeader.util.ResponseChecker;
+import com.github.muravyova.githubreporeader.utils.Resource;
+import com.github.muravyova.githubreporeader.utils.ResponseChecker;
 import com.github.muravyova.githubreporeader.viewmodels.RepositoryFileViewModel;
 
 import java.io.BufferedReader;
@@ -68,9 +68,9 @@ public class FileInteractor {
     public LiveData<StackEntry> getRepositoryFiles(RepositoryFileViewModel.Query query){
         MutableLiveData<StackEntry> result = new MutableLiveData<>();
         result.setValue(new StackEntry(query.getPath(), CommonItem.createLoadItem()));
-        mGitHubApi.getRepoStructure(query.getUserLogin(), query.getRepoName(), query.getPath()).enqueue(new Callback<ArrayList<File>>() {
+        mGitHubApi.getRepoStructure(query.getUserLogin(), query.getRepoName(), query.getPath()).enqueue(new Callback<ArrayList<Document>>() {
             @Override
-            public void onResponse(@NonNull Call<ArrayList<File>> call, @NonNull Response<ArrayList<File>> response) {
+            public void onResponse(@NonNull Call<ArrayList<Document>> call, @NonNull Response<ArrayList<Document>> response) {
                 if (ResponseChecker.responseIsSuccess(response)){
                     result.setValue(new StackEntry(query.getPath(), CommonItem.createFileItems(response.body())));
                 } else {
@@ -79,7 +79,7 @@ public class FileInteractor {
             }
 
             @Override
-            public void onFailure(@NonNull Call<ArrayList<File>> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<ArrayList<Document>> call, @NonNull Throwable t) {
                 result.setValue(new StackEntry(query.getPath(), CommonItem.createErrorItem(ResponseChecker.getErrorMessage(t))));
             }
         });

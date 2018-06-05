@@ -13,7 +13,6 @@ public class User implements Parcelable {
     @SerializedName("avatar_url")
     public String avatarUrl = "";
 
-
     @Override
     public int describeContents() {
         return 0;

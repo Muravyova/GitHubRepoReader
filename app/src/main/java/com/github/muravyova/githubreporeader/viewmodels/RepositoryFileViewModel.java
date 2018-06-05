@@ -9,9 +9,9 @@ import com.github.muravyova.githubreporeader.App;
 import com.github.muravyova.githubreporeader.models.CommonItem;
 import com.github.muravyova.githubreporeader.interactors.FileInteractor;
 import com.github.muravyova.githubreporeader.models.StackEntry;
-import com.github.muravyova.githubreporeader.util.AbsentLiveData;
-import com.github.muravyova.githubreporeader.util.Resource;
-import com.github.muravyova.githubreporeader.util.Stack;
+import com.github.muravyova.githubreporeader.utils.AbsentLiveData;
+import com.github.muravyova.githubreporeader.utils.Resource;
+import com.github.muravyova.githubreporeader.utils.Stack;
 
 import java.util.List;
 

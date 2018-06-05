@@ -1,4 +1,4 @@
-package com.github.muravyova.githubreporeader.util;
+package com.github.muravyova.githubreporeader.utils;
 
 import com.github.muravyova.githubreporeader.App;
 import com.github.muravyova.githubreporeader.R;

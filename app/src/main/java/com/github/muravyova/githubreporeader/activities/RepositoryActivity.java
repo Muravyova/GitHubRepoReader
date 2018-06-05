@@ -13,12 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.muravyova.githubreporeader.R;
-import com.github.muravyova.githubreporeader.adapter.ContentAdapter;
+import com.github.muravyova.githubreporeader.adapters.ContentAdapter;
 import com.github.muravyova.githubreporeader.models.CommonItem;
 import com.github.muravyova.githubreporeader.models.RepositoryItem;
 import com.github.muravyova.githubreporeader.models.UserItem;
 import com.github.muravyova.githubreporeader.network.User;
-import com.github.muravyova.githubreporeader.util.CircularTransformation;
+import com.github.muravyova.githubreporeader.utils.CircularTransformation;
 import com.github.muravyova.githubreporeader.viewmodels.RepositoryViewModel;
 import com.squareup.picasso.Picasso;
 

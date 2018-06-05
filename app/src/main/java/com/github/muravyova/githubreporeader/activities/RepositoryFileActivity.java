@@ -10,9 +10,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
 import com.github.muravyova.githubreporeader.R;
-import com.github.muravyova.githubreporeader.adapter.ContentAdapter;
+import com.github.muravyova.githubreporeader.adapters.ContentAdapter;
 import com.github.muravyova.githubreporeader.models.CommonItem;
-import com.github.muravyova.githubreporeader.models.FileItem;
+import com.github.muravyova.githubreporeader.models.DocumentItem;
+import com.github.muravyova.githubreporeader.network.DocumentType;
 import com.github.muravyova.githubreporeader.viewmodels.RepositoryFileViewModel;
 
 public class RepositoryFileActivity extends AppCompatActivity {
@@ -33,12 +34,12 @@ public class RepositoryFileActivity extends AppCompatActivity {
                 case R.id.item_error_id:
                     mRepositoryFileViewModel.loadFiles(mUserName, mRepoName, mCurrentPath);
                     break;
-                case R.id.item_file_id:
-                    FileItem fileItem = (FileItem) item;
-                    if (fileItem.getFile().type.equals("file")){
-                        startActivity(ReaderActivity.newIntent(RepositoryFileActivity.this, fileItem));
+                case R.id.item_document_id:
+                    DocumentItem documentItem = (DocumentItem) item;
+                    if (documentItem.getDocument().type == DocumentType.FILE){
+                        startActivity(ReaderActivity.newIntent(RepositoryFileActivity.this, documentItem));
                     } else {
-                        mRepositoryFileViewModel.loadFiles(mUserName, mRepoName, fileItem.getFile().path);
+                        mRepositoryFileViewModel.loadFiles(mUserName, mRepoName, documentItem.getDocument().path);
                     }
                     break;
             }

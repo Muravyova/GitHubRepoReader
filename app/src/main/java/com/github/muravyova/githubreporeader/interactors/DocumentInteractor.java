@@ -26,12 +26,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class FileInteractor {
+public class DocumentInteractor {
 
     private final Executor mExecutor;
     private final GitHubAPI mGitHubApi;
 
-    public FileInteractor(Executor executor, GitHubAPI gitHubApi) {
+    public DocumentInteractor(Executor executor, GitHubAPI gitHubApi) {
         mExecutor = executor;
         mGitHubApi = gitHubApi;
     }

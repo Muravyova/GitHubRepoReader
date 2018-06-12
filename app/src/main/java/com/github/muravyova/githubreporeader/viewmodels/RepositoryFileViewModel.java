@@ -7,7 +7,7 @@ import android.arch.lifecycle.ViewModel;
 
 import com.github.muravyova.githubreporeader.App;
 import com.github.muravyova.githubreporeader.models.CommonItem;
-import com.github.muravyova.githubreporeader.interactors.FileInteractor;
+import com.github.muravyova.githubreporeader.interactors.DocumentInteractor;
 import com.github.muravyova.githubreporeader.models.StackEntry;
 import com.github.muravyova.githubreporeader.utils.AbsentLiveData;
 import com.github.muravyova.githubreporeader.utils.Resource;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class RepositoryFileViewModel extends ViewModel {
 
-    private final FileInteractor mFileInteractor;
+    private final DocumentInteractor mDocumentInteractor;
     private final LiveData<StackEntry> mStackList;
     private final MutableLiveData<Object> mQuery = new MutableLiveData<>();
     private final MutableLiveData<String> mUrl = new MutableLiveData<>();
@@ -25,21 +25,21 @@ public class RepositoryFileViewModel extends ViewModel {
     private final Stack mStack = new Stack();
 
     public RepositoryFileViewModel() {
-        mFileInteractor = App.INJECTOR.mFileInteractor;
+        mDocumentInteractor = App.INJECTOR.mDocumentInteractor;
         mStackList = Transformations.switchMap(mQuery, query ->{
             if (query == null){
                 return AbsentLiveData.create();
             }
 
             if (query instanceof Query){
-                return mFileInteractor.getRepositoryFiles((Query) query);
+                return mDocumentInteractor.getRepositoryFiles((Query) query);
             } else if (query instanceof StackEntry){
-                return mFileInteractor.goBack((StackEntry) query);
+                return mDocumentInteractor.goBack((StackEntry) query);
             } else {
                 return AbsentLiveData.create();
             }
         });
-        mCodeContent = Transformations.switchMap(mUrl, mFileInteractor::downloadFile);
+        mCodeContent = Transformations.switchMap(mUrl, mDocumentInteractor::downloadFile);
     }
 
     public void check(String userLogin, String repoName){

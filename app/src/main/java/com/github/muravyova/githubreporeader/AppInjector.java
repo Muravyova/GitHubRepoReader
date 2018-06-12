@@ -3,7 +3,7 @@ package com.github.muravyova.githubreporeader;
 import android.content.Context;
 
 import com.github.muravyova.githubreporeader.network.GitHubAPI;
-import com.github.muravyova.githubreporeader.interactors.FileInteractor;
+import com.github.muravyova.githubreporeader.interactors.DocumentInteractor;
 import com.github.muravyova.githubreporeader.interactors.UserInteractor;
 import com.github.muravyova.githubreporeader.utils.ColorUtil;
 import com.github.muravyova.githubreporeader.utils.StringUtil;
@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AppInjector {
 
-    public final FileInteractor mFileInteractor;
+    public final DocumentInteractor mDocumentInteractor;
     public final UserInteractor mUserInteractor;
     public final StringUtil stringUtil;
     public final ColorUtil colorUtil;
@@ -38,7 +38,7 @@ public class AppInjector {
                 .client(builder.build())
                 .build()
                 .create(GitHubAPI.class);
-        mFileInteractor = new FileInteractor(appExecutor, gitHubApi);
+        mDocumentInteractor = new DocumentInteractor(appExecutor, gitHubApi);
         mUserInteractor = new UserInteractor(gitHubApi);
     }
 }
